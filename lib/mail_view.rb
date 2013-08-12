@@ -114,7 +114,7 @@ class MailView
     end
 
     def find_part(mail, matching_content_type)
-      if mail.multipart?
+      if mail.body.multipart?
         if matching_content_type.nil? && mail.sub_type == 'alternative'
           mail.parts.last
         else
